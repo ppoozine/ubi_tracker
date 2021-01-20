@@ -29,80 +29,78 @@
       新增使用者
     </CButton>
 
-    <div v-if="users.length > 0">
-      <CDataTable
-        style="margin-top: 10px"
-        border
-        striped
-        hover
-        pagination
-        :items="users"
-        :fields="fields"
-        :column-filter="showColumnFilter"
-        :items-per-page="10"
-        :sorter="true"
-      >
-        <template #operations="{ item }">
-          <td align="right">
-            <CButton
-              color="primary"
-              variant="outline"
-              class="py-0"
-              @click="
-                clickUpdateUser(
-                  item.pk,
-                  item.idnumber,
-                  item.username,
-                  item.sex,
-                  item.addr,
-                  item.email,
-                  item.phone
-                )
-              "
-            >
-              <CIcon :content="$options.freeSet.cilPencil" />
-            </CButton>
-            <br />
-            <CButton
-              color="danger"
-              variant="outline"
-              class="py-0"
-              @click="deleteUser(item.pk, item.username)"
-            >
-              <CIcon :content="$options.freeSet.cilTrash" />
-            </CButton>
-          </td>
-        </template>
+    <CDataTable
+      style="margin-top: 10px"
+      border
+      striped
+      hover
+      pagination
+      :items="users"
+      :fields="fields"
+      :column-filter="showColumnFilter"
+      :items-per-page="10"
+      :sorter="true"
+    >
+      <template #operations="{ item }">
+        <td align="right">
+          <CButton
+            color="primary"
+            variant="outline"
+            class="py-0"
+            @click="
+              clickUpdateUser(
+                item.pk,
+                item.idnumber,
+                item.username,
+                item.sex,
+                item.addr,
+                item.email,
+                item.phone
+              )
+            "
+          >
+            <CIcon :content="$options.freeSet.cilPencil" />
+          </CButton>
+          <br />
+          <CButton
+            color="danger"
+            variant="outline"
+            class="py-0"
+            @click="deleteUser(item.pk, item.username)"
+          >
+            <CIcon :content="$options.freeSet.cilTrash" />
+          </CButton>
+        </td>
+      </template>
 
-        <template #idnumber="{ item }">
-          <td align="center">{{ item.idnumber }}</td>
-        </template>
+      <template #idnumber="{ item }">
+        <td align="center">{{ item.idnumber }}</td>
+      </template>
 
-        <template #username="{ item }">
-          <td align="center">{{ item.username }}</td>
-        </template>
+      <template #username="{ item }">
+        <td align="center">{{ item.username }}</td>
+      </template>
 
-        <template #sex="{ item }">
-          <td align="center">{{ item.sex }}</td>
-        </template>
+      <template #sex="{ item }">
+        <td align="center">{{ item.sex }}</td>
+      </template>
 
-        <template #addr="{ item }">
-          <td align="left">{{ item.addr }}</td>
-        </template>
+      <template #addr="{ item }">
+        <td align="left">{{ item.addr }}</td>
+      </template>
 
-        <template #email="{ item }">
-          <td align="right">{{ item.email }}</td>
-        </template>
+      <template #email="{ item }">
+        <td align="right">{{ item.email }}</td>
+      </template>
 
-        <template #phone="{ item }">
-          <td align="right">{{ item.phone }}</td>
-        </template>
+      <template #phone="{ item }">
+        <td align="right">{{ item.phone }}</td>
+      </template>
 
-        <template #user_id="{ item }">
-          <td align="right">{{ item.user_id }}</td>
-        </template>
-      </CDataTable>
-    </div>
+      <template #user_id="{ item }">
+        <td align="right">{{ item.user_id }}</td>
+      </template>
+    </CDataTable>
 
     <!-- 新增使用者 -->
     <CModal :show.sync="showCreateModal" color="dark">
@@ -220,7 +218,7 @@ export default {
         {
           key: "sex",
           label: "性別",
-          _style: "width: 10%",
+          _style: "width: 5%",
         },
         {
           key: "addr",

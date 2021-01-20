@@ -2,7 +2,7 @@ from fastapi import APIRouter, status, HTTPException
 from fastapi.responses import JSONResponse
 from ..database import database
 from ..models.models import UserInfoBaseModel
-from ..schemas.userInfoBase_schema import CreateUser, UserSchema, UpdateUser
+from ..schemas.userInfoBase_schema import CreateUser, UserSchema, UpdateUser, UsernameSchema
 from ..schemas.common import SuccessCreate, SuccessUpdated, SuccessDeleted
 from typing import List
 from ..log.log import logger
@@ -39,7 +39,7 @@ async def create_user(create: CreateUser):
     
 @router.get("/user", response_model=List[UserSchema], status_code=status.HTTP_200_OK)
 @logger.catch
-async def read_user():
+async def read_users():
     query = UserInfoBaseModel.select().order_by(UserInfoBaseModel.c.pk)
     return await database.fetch_all(query)
 
@@ -56,3 +56,9 @@ async def delete_user(pk: int):
     query = UserInfoBaseModel.delete().where(UserInfoBaseModel.c.pk == pk)
     await database.execute(query)
     return {"status": "Successfully Deleted!"}
+
+@router.get("/username", response_model=List[UsernameSchema], status_code=status.HTTP_200_OK)
+@logger.catch
+async def read_username():
+    query = UserInfoBaseModel.select().with_only_columns([UserInfoBaseModel.c.username])
+    return await database.fetch_all(query)

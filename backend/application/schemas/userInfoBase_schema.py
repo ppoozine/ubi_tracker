@@ -24,3 +24,6 @@ class UpdateUser(BaseModel):
     addr: str
     email: str
     phone: str
+
+class UsernameSchema(BaseModel):
+    username: str

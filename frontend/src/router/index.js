@@ -47,15 +47,15 @@ function configRoutes () {
               component: Car
             },
             {
-              path: 'data/tracking',
+              path: 'tracking',
               component: Tracking
             },
             {
-              path: 'data/carAnalysis',
+              path: 'carAnalysis',
               component: CarAnalysis
             },
             {
-              path: 'data/driverAnalysis',
+              path: 'driverAnalysis',
               component: DriverAnalysis
             }
           ]
