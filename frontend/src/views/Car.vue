@@ -209,7 +209,6 @@ export default {
 
     createCar() {
       this.username = this.select_username_options;
-      console.log("car:" + this.username);
       this.tracker_id = this.tracker_id.trim();
       this.car_plate = this.car_plate.trim();
 
@@ -252,15 +251,17 @@ export default {
     },
 
     deleteCar(pk, car_plate) {
-      if (confirm(`確定刪除 '${car_plate}'?`))
+      if (confirm(`確定刪除 '${car_plate}'?`)) {
         this.$http
-          .delete(`http://localhost:8000/api/car/${pk}`)
+          .delete(`http://localhost:8000/api/car/${pk}/${car_plate}`)
           .then((res) => {
             this.getCars();
           })
           .catch((error) => {
             this.getCars();
+            console.log(error.response.data.detail);
           });
+      }
     },
 
     updateActive(pk, active) {

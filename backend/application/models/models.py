@@ -24,3 +24,12 @@ CarInfoBaseModel = sqlalchemy.Table(
     sqlalchemy.Column("create_date", sqlalchemy.DATE),
     sqlalchemy.Column("active", sqlalchemy.BOOLEAN)
 )
+
+CarPlateModel = sqlalchemy.Table(
+    "car_plate_info",
+    metadata,
+    sqlalchemy.Column("pk", sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("car_plate", sqlalchemy.Text),
+    sqlalchemy.Column("start_date", sqlalchemy.DATE),
+    sqlalchemy.Column("end_date", sqlalchemy.DATE)
+)

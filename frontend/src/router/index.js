@@ -10,6 +10,7 @@ const Car = () => import('@/views/Car')
 const Tracking = () => import('@/views/Tracking')
 const CarAnalysis = () => import('@/views/CarAnalysis')
 const DriverAnalysis = () => import('@/views/DriverAnalysis')
+const CarPlate = () => import('@/views/CarPlate')
 
 
 
@@ -45,6 +46,10 @@ function configRoutes () {
             {
               path: 'car',
               component: Car
+            },
+            {
+              path: 'carPlate',
+              component: CarPlate
             },
             {
               path: 'tracking',

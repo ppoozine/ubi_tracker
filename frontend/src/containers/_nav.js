@@ -25,6 +25,12 @@ export default [
         icon: 'cil-car-alt',
       },
       {
+        _name: 'CSidebarNavItem',
+        name: '車牌管理',
+        to: '/carPlate',
+        icon: 'cil-spreadsheet',
+      },
+      {
         _name: 'CSidebarNavTitle',
         _children: ['數據分析']
       },

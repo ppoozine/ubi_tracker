@@ -23,4 +23,3 @@ class CarSchema(BaseModel):
 
 class UpdateActive(BaseModel):
     active: bool
-

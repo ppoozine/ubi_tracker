@@ -35,6 +35,12 @@ def create_app():
 
     @app.get('/host')
     async def index():
-        return {"status": "host on"}
+        return {
+            "status": "host on",
+            "865284040753166": "謝信婷",
+            "865284040753372": "莘蓓鴻",
+            "865284040845384": "淩凱仁",
+            "865284041858634": "陸東翊"
+        }
     
     return app
