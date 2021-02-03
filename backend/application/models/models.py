@@ -33,3 +33,17 @@ CarPlateModel = sqlalchemy.Table(
     sqlalchemy.Column("start_date", sqlalchemy.DATE),
     sqlalchemy.Column("end_date", sqlalchemy.DATE)
 )
+
+def car_segment_table(table_name):
+    CarSegmentModel = sqlalchemy.Table(
+        table_name,
+        metadata,
+        sqlalchemy.Column("tracker_id", sqlalchemy.Text),
+        sqlalchemy.Column("trip_date", sqlalchemy.Text),
+        sqlalchemy.Column("trip_id", sqlalchemy.Integer),
+        sqlalchemy.Column("seq_no", sqlalchemy.Integer),
+        sqlalchemy.Column("longitude", sqlalchemy.Float),
+        sqlalchemy.Column("latitude", sqlalchemy.Float),
+        extend_existing=True
+    )
+    return CarSegmentModel
