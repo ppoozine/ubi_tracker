@@ -196,7 +196,7 @@ export default {
       this.$http.get("http://localhost:8000/api/username").then((res) => {
         for (var i = 0; i < res.data.length; i++) {
           this.usernames.push(res.data[i].username);
-        }
+        };
         this.select_username_options = this.usernames[0];
       });
     },
