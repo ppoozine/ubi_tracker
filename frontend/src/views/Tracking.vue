@@ -140,6 +140,7 @@ export default {
         .then((res) => {
           this.coordinates = res.data;
           this.drawLine(this.coordinates);
+          this.mapFitZoom(this.coordinates);
         });
     },
 
@@ -167,19 +168,15 @@ export default {
           },
           {
             icon: lineSymbol,
-            offset: "20%",
+            offset: "25%",
           },
           {
             icon: lineSymbol,
-            offset: "40%",
+            offset: "50%",
           },
           {
             icon: lineSymbol,
-            offset: "60%",
-          },
-          {
-            icon: lineSymbol,
-            offset: "80%",
+            offset: "75%",
           },
           {
             icon: lineSymbol,
@@ -188,6 +185,16 @@ export default {
         ],
         map: this.map,
       });
+    },
+
+    mapFitZoom(coordinates) {
+      var bounds = new google.maps.LatLngBounds();
+      for (var i = 0; i < coordinates.length; i++) {
+        bounds.extend(
+          new google.maps.LatLng(coordinates[i].latitude, coordinates[i].longitude)
+        );
+      }
+      this.map.fitBounds(bounds);
     },
   },
 };
