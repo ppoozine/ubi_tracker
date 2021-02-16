@@ -14,6 +14,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 
+import CoreuiVueCharts from '@coreui/vue-chartjs'
+Vue.use(CoreuiVueCharts)
+
 new Vue({
   el: '#app',
   router,

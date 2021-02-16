@@ -5,6 +5,7 @@ import Router from 'vue-router'
 const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
+const Dashboard = () => import('@/views/Dashboard')
 const Driver = () => import('@/views/Driver')
 const Car = () => import('@/views/Car')
 const Tracking = () => import('@/views/Tracking')
@@ -27,18 +28,22 @@ function configRoutes () {
   return [
     {
       path: '/',
-      redirect: '/driver',
+      redirect: '/dashboard',
       component: TheContainer,
       children: [
         {
           path: '/',
-          redirect: 'driver',
+          redirect: 'dashboard',
           component: {
             render(c) {
               return c('router-view')
             },
           },
           children: [
+            {
+              path: 'dashboard',
+              component: Dashboard
+            },
             {
               path: 'driver',
               component: Driver
